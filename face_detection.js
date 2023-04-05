@@ -10,9 +10,9 @@ $(document).ready(function(){
         await faceapi.loadFaceRecognitionModel(MODEL_URL)
         await faceapi.loadFaceExpressionModel(MODEL_URL)
 
-        const video= document.getElementById('demo')
-        let faceDescriptions = await faceapi.detectAllFaces(video)
-        const canvas = document.getElementById("mycanvas")
+        const video = document.getElementById('demo')
+        let faceDescriptions = await faceapi.detectAllFaces(video).withFaceLandmarks().withFaceExpressions();
+        const canvas = document.getElementById("myCanvas")
         var context = canvas.getContext("2d")
         faceapi.matchDimensions(canvas, video)
 
