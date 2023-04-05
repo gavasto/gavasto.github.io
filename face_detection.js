@@ -13,12 +13,13 @@ $(document).ready(function(){
         const video= document.getElementById('demo')
         let faceDescriptions = await faceapi.detectAllFaces(video)
         const canvas = $('#reflay').get(0)
+        var context = canvas.getContext("2d")
         faceapi.matchDimensions(canvas, video)
 
         faceDescriptions = faceapi.resizeResults(faceDescriptions, video)
-        faceapi.draw.drawDetections(canvas, faceDescriptions)
-        faceapi.draw.drawFaceLandmarks(canvas, faceDescriptions)
-        faceapi.draw.drawFaceExpressions(canvas, faceDescriptions)
+        faceapi.draw.drawDetections(context, faceDescriptions)
+        faceapi.draw.drawFaceLandmarks(context, faceDescriptions)
+        faceapi.draw.drawFaceExpressions(context, faceDescriptions)
 
     }
     
