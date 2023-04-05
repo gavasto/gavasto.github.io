@@ -14,10 +14,10 @@ import * as faceapi from 'face-api.js';
             //const canvas = faceapi.createCanvasFromMedia(video);
             const canvas = faceapi.createCanvas({width: 640, height: 360});
             //const canvas = document.getElementById("myCanvas")
+            faceapi.matchDimensions(canvas, video)
             setInterval(async () => {
                 let faceDescriptions = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions());
                 //var context = canvas.getContext("2d")
-                faceapi.matchDimensions(canvas, video)
     
                 faceDescriptions = faceapi.resizeResults(faceDescriptions, video)
                 faceapi.draw.drawDetections(canvas, faceDescriptions)
