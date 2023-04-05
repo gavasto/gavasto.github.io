@@ -1,7 +1,6 @@
 import * as faceapi from 'face-api.js';
     
     function face(){
-        
         const MODEL_URL = '/weights'
 
         Promise(faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL))
