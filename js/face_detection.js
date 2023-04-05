@@ -1,7 +1,7 @@
 function face(){
     const MODEL_URL = '/weights'
 
-    Promise(faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL))
+    new Promise(faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL))
     //await faceapi.loadFaceLandmarkModel(MODEL_URL)
     //await faceapi.loadFaceRecognitionModel(MODEL_URL)
     //await faceapi.loadFaceExpressionModel(MODEL_URL)
