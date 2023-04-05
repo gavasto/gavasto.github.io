@@ -9,9 +9,10 @@ import * as faceapi from 'face-api.js';
         //await faceapi.loadFaceRecognitionModel(MODEL_URL)
         //await faceapi.loadFaceExpressionModel(MODEL_URL)
 
-        const video = document.getElementById('demo')
+        const video= document.getElementById('demo')
         video.onplay = function() {
-            const canvas = faceapi.createCanvasFromMedia(video);
+            //const canvas = faceapi.createCanvasFromMedia(video);
+            const canvas = faceapi.createCanvas(640, 360);
             //const canvas = document.getElementById("myCanvas")
             setInterval(async () => {
                 let faceDescriptions = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions());
