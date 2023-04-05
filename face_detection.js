@@ -11,7 +11,7 @@ $(document).ready(function(){
         await faceapi.loadFaceExpressionModel(MODEL_URL)
 
         const video = document.getElementById('originalImg')
-        setInterval(async () => {
+        //setInterval(async () => {
             let faceDescriptions = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
             const canvas = document.getElementById("myCanvas")
             var context = canvas.getContext("2d")
@@ -21,7 +21,7 @@ $(document).ready(function(){
             faceapi.draw.drawDetections(canvas, faceDescriptions)
             faceapi.draw.drawFaceLandmarks(canvas, faceDescriptions)
             faceapi.draw.drawFaceExpressions(canvas, faceDescriptions)
-        }, 100);
+        //}, 100);
     }
     face()
 })
