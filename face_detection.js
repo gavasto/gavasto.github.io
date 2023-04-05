@@ -11,17 +11,17 @@ $(document).ready(function(){
         await faceapi.loadFaceExpressionModel(MODEL_URL)
 
         const video = document.getElementById('originalImg')
-        let faceDescriptions = await faceapi.detectAllFaces(video).withFaceLandmarks().withFaceExpressions();
-        const canvas = document.getElementById("myCanvas")
-        var context = canvas.getContext("2d")
-        faceapi.matchDimensions(canvas, video)
+        setInterval(async () => {
+            let faceDescriptions = await faceapi.detectAllFaces(video).withFaceLandmarks().withFaceExpressions();
+            const canvas = document.getElementById("myCanvas")
+            var context = canvas.getContext("2d")
+            faceapi.matchDimensions(canvas, video)
 
-        faceDescriptions = faceapi.resizeResults(faceDescriptions, video)
-        faceapi.draw.drawDetections(canvas, faceDescriptions)
-        faceapi.draw.drawFaceLandmarks(canvas, faceDescriptions)
-        faceapi.draw.drawFaceExpressions(canvas, faceDescriptions)
-
+            faceDescriptions = faceapi.resizeResults(faceDescriptions, video)
+            faceapi.draw.drawDetections(canvas, faceDescriptions)
+            faceapi.draw.drawFaceLandmarks(canvas, faceDescriptions)
+            faceapi.draw.drawFaceExpressions(canvas, faceDescriptions)
+        }, 100);
     }
-    
     face()
 })
