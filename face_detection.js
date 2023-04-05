@@ -1,5 +1,4 @@
 import * as faceapi from 'face-api.js';
-
     
     async function face(){
         
