@@ -1,7 +1,9 @@
-function face(){
-    const MODEL_URL = '/weights'
+const MODEL_URL = '/weights'
 
-    new Promise(faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL))
+    Promise(faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL)).then(face)
+
+function face(){
+    
     //await faceapi.loadFaceLandmarkModel(MODEL_URL)
     //await faceapi.loadFaceRecognitionModel(MODEL_URL)
     //await faceapi.loadFaceExpressionModel(MODEL_URL)
@@ -26,4 +28,3 @@ function face(){
         }, 100);
     }
 }
-face()
