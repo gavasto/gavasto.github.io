@@ -1,10 +1,10 @@
 import * as faceapi from 'face-api.js';
     
-    async function face(){
+    function face(){
         
         const MODEL_URL = '/weights'
 
-        await faceapi.loadTinyFaceDetectorModel(MODEL_URL)
+        Promise(faceapi.loadTinyFaceDetectorModel(MODEL_URL))
         //await faceapi.loadFaceLandmarkModel(MODEL_URL)
         //await faceapi.loadFaceRecognitionModel(MODEL_URL)
         //await faceapi.loadFaceExpressionModel(MODEL_URL)
