@@ -13,7 +13,8 @@
         video.onplay = function() {
             const canvas = faceapi.createCanvasFromMedia(video);
             //const canvas = faceapi.createCanvas({width: 640, height: 360});
-            document.body.append(canvas);
+            let container = document.querySelector(".container");
+            container.append(canvas);
             //const canvas = document.getElementById("myCanvas")
             faceapi.matchDimensions(canvas, video)
             setInterval(async () => {
