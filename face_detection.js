@@ -5,14 +5,14 @@ $(document).ready(function(){
         
         const MODEL_URL = '/weights'
 
-        await faceapi.loadSsdMobilenetv1Model(MODEL_URL)
+        await faceapi.loadTinyFaceDetectorModel(MODEL_URL)
         await faceapi.loadFaceLandmarkModel(MODEL_URL)
         await faceapi.loadFaceRecognitionModel(MODEL_URL)
         await faceapi.loadFaceExpressionModel(MODEL_URL)
 
         const video = document.getElementById('originalImg')
         setInterval(async () => {
-            let faceDescriptions = await faceapi.detectAllFaces(video).withFaceLandmarks().withFaceExpressions();
+            let faceDescriptions = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
             const canvas = document.getElementById("myCanvas")
             var context = canvas.getContext("2d")
             faceapi.matchDimensions(canvas, video)
