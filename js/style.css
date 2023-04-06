@@ -1,5 +1,5 @@
 body{
-    display: block;
+    display: flex;
 }
 canvas{
     position: absolute;
